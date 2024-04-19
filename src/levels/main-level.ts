@@ -37,7 +37,7 @@ export const setWorldPixelConversion = (game: Engine) => {
     const pixelConversion = pageDistance.x;
     document.documentElement.style.setProperty('--pixel-conversion', pixelConversion.toString());
 
-    const pos = game.screen.screenToPageCoordinates(vec(800 - 20, 20));
+    const pos = game.screen.screenToPageCoordinates(vec(800 - 5, 5));
     const inventory = document.getElementsByTagName(
         "app-inventory"
     )[0]! as Inventory;
@@ -71,8 +71,8 @@ export class Level extends Scene {
         const tile = this.puzzleGrid.iso.getTile(Math.floor(dimension / 2), Math.floor(dimension / 2));
         if (tile) {
             this.camera.pos =  tile.pos;
-            if (dimension > 3) {
-                this.camera.pos = this.camera.pos.add(vec(32, -16));
+            if (dimension >= 3) {
+                this.camera.pos = this.camera.pos.add(vec(32 + 8, -8));
             }
         }
 
@@ -85,7 +85,7 @@ export class Level extends Scene {
             "app-inventory"
         )[0]! as Inventory;
         this.summoner = new Actor({
-            pos: vec(720, 300),
+            pos: vec(720, 232),
             scale: vec(2, 2),
             coordPlane: CoordPlane.Screen
         });

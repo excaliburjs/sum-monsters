@@ -69,7 +69,7 @@ export class Tutorial extends Level {
 
     onInitialize(engine: Engine<any>): void {
         super.onInitialize(engine);
-
+        const height =  600 * (10/16);
         this.inventory.addEventListener('selection', ({ detail }: any) => {
             this.selections.push(detail)
         });
@@ -84,7 +84,7 @@ export class Tutorial extends Level {
             unit: FontUnit.Px,
             color: Color.White,
             textAlign: TextAlign.Center,
-            quality: 4
+            quality: 8
         });
 
         const otherFont = Resources.Font.toFont({
@@ -93,14 +93,14 @@ export class Tutorial extends Level {
             unit: FontUnit.Px,
             color: Color.White,
             textAlign: TextAlign.Center,
-            quality: 4
+            quality: 8
         });
 
         this.tutorialText = new Label({
             text: 'The math is all wrong!\n Let\'s sum some monsters!',
             font: otherFont,
             z: Infinity,
-            pos: vec(400, 240)
+            pos: vec(400, height/2)
         });
         this.add(this.tutorialText)
 
@@ -108,7 +108,7 @@ export class Tutorial extends Level {
             text: '? + ? = 4',
             font: this.font,
             z: Infinity,
-            pos: vec(400, 200)
+            pos: vec(400, height/2 - 32)
         });
         this.add(this.equation);
     }
@@ -211,9 +211,11 @@ export class Tutorial extends Level {
         const puzzleGrid = this.puzzleGrid;
         const equation = this.equation;
         coroutine(function* () {
-            const xPos = 490;
+            const xPos = 508;
+            const goblinYPos = 85;
+            const ratYPos = 68;
             yield 500;
-            yield moveFingerAndRotate(vec(xPos, 54), 0);
+            yield moveFingerAndRotate(vec(xPos, goblinYPos), 0);
             yield waitForSelection('goblin');
 
             yield moveFingerAndRotateToTile(0, 0, Math.PI / 2);
@@ -221,7 +223,7 @@ export class Tutorial extends Level {
             yield waitForPlacement(0, 0);
             equation.text = '2 + ? = 4';
 
-            yield moveFingerAndRotate(vec(xPos, 54), 0);
+            yield moveFingerAndRotate(vec(xPos, goblinYPos), 0);
             yield waitForSelection('goblin');
 
             yield moveFingerAndRotateToTile(1, 0, Math.PI / 2);
@@ -229,7 +231,7 @@ export class Tutorial extends Level {
             yield waitForPlacement(1, 0);
             equation.text = '2 + 2 = 4';
 
-            yield moveFingerAndRotate(vec(xPos, 36), 0);
+            yield moveFingerAndRotate(vec(xPos, ratYPos), 0);
             yield waitForSelection('rat');
             equation.text = '2 + ? = 3';
 
@@ -239,7 +241,7 @@ export class Tutorial extends Level {
             equation.text = '2 + 1 = 3';
 
 
-            yield moveFingerAndRotate(vec(xPos, 36), 0);
+            yield moveFingerAndRotate(vec(xPos, ratYPos), 0);
             yield waitForSelection('rat');
             equation.text = '2 + ? = 3';
 

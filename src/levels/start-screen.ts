@@ -13,9 +13,9 @@ export class StartScreen extends Scene {
 
     constructor() {
         super();
-
+        const height =  600 * (10/16);
         this.summonCircle = new Actor({
-            pos: vec(400, 300),
+            pos: vec(400, height/2),
             coordPlane: CoordPlane.Screen,
             angularVelocity: 0.05
         });
@@ -24,7 +24,7 @@ export class StartScreen extends Scene {
 
 
         this.titleText = new Actor({
-            pos: vec(400, 300),
+            pos: vec(400, height/2),
             coordPlane: CoordPlane.Screen
         });
         this.titleText.graphics.add(Resources.TitleTextImage.toSprite());
@@ -32,7 +32,7 @@ export class StartScreen extends Scene {
 
 
         this.playNowText = new Actor({
-            pos: vec(400, 450),
+            pos: vec(400, height/2 + 100),
             coordPlane: CoordPlane.Screen
         });
         this.playNowText.graphics.add(Resources.PlayNowImage.toSprite());

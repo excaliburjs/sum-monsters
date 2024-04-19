@@ -35,19 +35,28 @@ export class Inventory extends LitElement {
 
             .container {
                 pointer-events: none;
-                display: block;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
                 background-color: #42002077;// #8d8d8daa;
                 border-radius: 5px;
                 color: white;
                 position: absolute;
-                padding: 1rem;
+                padding: .5rem;
                 font-size: 24px;
                 transform-origin: 0 0;
                 transform: scale(calc(var(--pixel-conversion) / 3), calc(var(--pixel-conversion) / 3));
             }
 
+            h2 {
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+
             ul {
                 padding: 0;
+                margin: 0;
+                width: 100%;
             }
 
             button {
@@ -56,7 +65,7 @@ export class Inventory extends LitElement {
                 cursor: pointer;
                 border-radius: 5px;
                 background-color: #1e1e1e;
-                margin: 5px;
+                margin-bottom: 5px;
                 padding: 5px;
             }
             button:hover,button:focus-visible {
@@ -68,9 +77,12 @@ export class Inventory extends LitElement {
             }
 
             li,button {
+                font-size: 20px;
                 display: flex;
                 flex-grow: 1;
                 white-space: nowrap;
+                justify-content: center;
+                align-items: center;
             }
 
             .unit-image {

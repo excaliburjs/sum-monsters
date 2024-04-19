@@ -16,7 +16,7 @@ SoundManager.init();
 
 const game = new Engine({
   width: 800,
-  height: 600,
+  height: 600 * (10/16),
   canvasElementId: "game",
   displayMode: DisplayMode.FitScreen,
   pixelArt: true,
@@ -34,7 +34,9 @@ game.screen.events.on('resize', () => setWorldPixelConversion(game));
 game.start("startScreen", {
   inTransition: new FadeInOut({ direction: "in", color: Color.fromHex('#420020'), duration: 1000 }),
   loader,
+  
 }).then(() => {
+    game.screen.goFullScreen('content');
     UnitsConfig['dragon'].graphic = Resources.DragonIdle.getAnimation('idle')!
     UnitsConfig['orc'].graphic = Resources.OrcIdle.getAnimation('idle')!
     UnitsConfig['goblin'].graphic = Resources.GoblinIdle.getAnimation('idle')!
