@@ -1,0 +1,53 @@
+html, body {
+  background-color: #420020;
+  margin: 0;
+  padding: 0;
+}
+
+canvas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#commitRef {
+  font-family: Fira Code, Dank Mono, Consolas, monospace;
+  font-size: 10px;
+  position: absolute;
+  bottom: 3px;
+  right: 3px;
+}
+
+#menu {
+  z-index: 5;
+  background-color: #000000b3;
+  border-radius: 5px 0 0 5px;
+  padding: .5em;
+  position: fixed;
+  bottom: 10px;
+  right: 0;
+}
+
+ul#menu {
+  font-size: 1.5em;
+  list-style-type: none;
+}
+
+ul#menu li {
+  margin: 0 .5em;
+  display: inline-block;
+}
+
+ul#menu a {
+  color: #fff;
+}
+
+ul#menu li:last-child {
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 5px;
+  font-size: .6em;
+  display: block;
+}
+/*# sourceMappingURL=index.1bda66e9.css.map */
