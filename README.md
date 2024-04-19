@@ -1,6 +1,6 @@
-# Ludum Dare 55 - Sum Monsters
+# Sum Monsters
 
-Visit https://excaliburjs.com/ludum-55/ to play!
+Visit https://excaliburjs.com/sum-monsters/ to play!
 
 ## Prerequisites
 
@@ -13,9 +13,9 @@ Updating your local copy with `git pull -r` to rebase your local commits on top 
 
 1. Clone the repo
 
-        git clone https://github.com/excaliburjs/ludum-55.git
+        git clone https://github.com/excaliburjs/sum-monsters.git
 
-2. Navigate into the root directory `ludum-55` in your favorite command line tool
+2. Navigate into the root directory `sum-monsters` in your favorite command line tool
 
 3. Run the install to download the tools:
 
