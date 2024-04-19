@@ -29,7 +29,7 @@ jobs:
       - name: Build game
         run: |
           npm install
-          npm run build -- --public-url /ludum-55
+          npm run build -- --public-url /sum-monsters
       # Runs a set of commands using the runners shell
       - name: Deploy to GitHub Pages
         # You may pin to the exact commit or the version.
