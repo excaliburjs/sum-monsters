@@ -2,7 +2,11 @@
   "name": "sum-monsters",
   "version": "1.0.0",
   "private": true,
-  "description": "",
+  "description": "Play the mathimagical game where you arrange monsters to complete the dungeon’s sum-mons. May Trix the Witch is doing all she can to bring the dungeon to order!",
+  "author": {
+    "name": "Excalibur.js Team",
+    "url": "https://github.com/excaliburjs"
+  },
   "main": "src/electron-main.js",
   "scripts": {
     "start": "parcel serve ./index.html",
