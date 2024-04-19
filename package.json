@@ -10,8 +10,8 @@
     "build": "parcel build --no-optimize ./index.html --dist-dir ./dist --public-url ./",
     "clean": "rimraf dist && rimraf .parcel-cache",
     "serve": "serve dist/",
-    "package": "npm run build-game && electron-forge package",
-    "make": "npm run build-game && electron-forge make"
+    "package": "npm run build && electron-forge package",
+    "make": "npm run build && electron-forge make"
   },
   "targets": {
     "main": false
