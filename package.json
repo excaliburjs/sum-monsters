@@ -21,10 +21,10 @@
     "main": false
   },
   "dependencies": {
-    "@excaliburjs/plugin-jsfxr": "^0.29.4",
     "@excaliburjs/plugin-aseprite": "0.29.0",
-    "electron-squirrel-startup": "^1.0.0",
+    "@excaliburjs/plugin-jsfxr": "^0.29.4",
     "classnames": "2.5.1",
+    "electron-squirrel-startup": "^1.0.0",
     "excalibur": "0.29.2",
     "lit": "3.1.2",
     "store": "2.0.12"
@@ -36,9 +36,10 @@
     "@electron-forge/maker-squirrel": "^7.2.0",
     "@electron-forge/maker-zip": "^7.2.0",
     "@electron-forge/plugin-auto-unpack-natives": "^7.2.0",
-    "electron": "29.0.1",
+    "@parcel/transformer-inline-string": "^2.12.0",
     "@types/storejs": "2.0.3",
     "@types/zepto": "1.0.36",
+    "electron": "29.0.1",
     "parcel": "2.12.0",
     "posthtml-expressions": "1.11.3",
     "rimraf": "5.0.5",

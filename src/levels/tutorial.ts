@@ -254,6 +254,7 @@ export class Tutorial extends Level {
 
     checkSolution() {
         if (this.puzzleGrid.checkSolved()) {
+            localStorage.setItem('tutorial', 'solved');
             SfxrSounds.clearPuzzle.play();
             const sceneKey = `level 0`;
             if (!this.engine.director.getSceneInstance(sceneKey)) {

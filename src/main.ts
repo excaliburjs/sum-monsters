@@ -7,9 +7,12 @@ import { StartScreen } from "./levels/start-screen";
 import Config from "./config";
 
 import "./inventory"; // lit component
+import "./level-select";
+
 import { EndScreen } from "./levels/end-screen";
 import { Tutorial } from "./levels/tutorial";
 import { UnitsConfig } from "./unit";
+import { LevelSelect } from "./levels/level-select";
 
 loadPreferences();
 SoundManager.init();
@@ -24,6 +27,7 @@ const game = new Engine({
   physics: false,
   scenes: {
     startScreen: StartScreen,
+    levelSelect: LevelSelect,
     tutorial: Tutorial,
     introLevel: new Level(Config.startingPuzzle),
     endScreen: EndScreen

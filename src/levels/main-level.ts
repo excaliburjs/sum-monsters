@@ -30,6 +30,7 @@ import { SoundManager } from "../sound-manager";
 import { Resources, SfxrSounds } from "../resources";
 import Config from "../config";
 import { createRainbowOutlineMaterial } from "../rainbowOutline";
+import { LevelSelectElement } from "../level-select";
 
 export const setWorldPixelConversion = (game: Engine) => {
     const pageOrigin = game.screen.worldToPageCoordinates(Vector.Zero);
@@ -42,6 +43,28 @@ export const setWorldPixelConversion = (game: Engine) => {
         "app-inventory"
     )[0]! as Inventory;
     inventory.setInventoryPositionTopRight(pos);
+
+    const levelSelect = document.getElementsByTagName(
+        'level-select')[0]! as LevelSelectElement;
+    levelSelect.setLevelSelectTopLeft(game.screen.screenToPageCoordinates(vec(50, 120)));
+}
+
+export const goToPuzzle = (game: Engine, puzzleNumber: number) => {
+    if (hasPuzzle(puzzleNumber)) {
+        const sceneKey = `level ${puzzleNumber}`;
+        if (!game.director.getSceneInstance(sceneKey)) {
+            game.addScene(sceneKey, new Level(puzzleNumber));
+        }
+        game.goToScene(sceneKey, {
+            destinationIn: new FadeInOut({ direction: "in", duration: 2000 }),
+            sourceOut: new FadeInOut({ direction: "out", duration: 2000 }),
+        });
+    } else {
+        game.goToScene('endScreen', {
+            destinationIn: new FadeInOut({ direction: "in", duration: 2000 }),
+            sourceOut: new FadeInOut({ direction: "out", duration: 2000 }),
+        });
+    }
 }
 
 export class Level extends Scene {
@@ -290,23 +313,10 @@ export class Level extends Scene {
 
     checkSolution() {
         if (this.puzzleGrid.checkSolved()) {
+            localStorage.setItem(`${this.level}`, 'solved');
             const nextLevel = this.level + 1;
             SfxrSounds.clearPuzzle.play();
-            if (hasPuzzle(nextLevel)) {
-                const sceneKey = `level ${nextLevel}`;
-                if (!this.engine.director.getSceneInstance(sceneKey)) {
-                    this.engine.addScene(sceneKey, new Level(nextLevel));
-                }
-                this.engine.goToScene(sceneKey, {
-                    destinationIn: new FadeInOut({ direction: "in", duration: 2000 }),
-                    sourceOut: new FadeInOut({ direction: "out", duration: 2000 }),
-                });
-            } else {
-                this.engine.goToScene('endScreen', {
-                    destinationIn: new FadeInOut({ direction: "in", duration: 2000 }),
-                    sourceOut: new FadeInOut({ direction: "out", duration: 2000 }),
-                });
-            }
+            goToPuzzle(this.engine, nextLevel);
         }
     }
 

@@ -73,10 +73,18 @@ export class StartScreen extends Scene {
         });
     }
 
+    levelSelectOrTutorial() {
+        if (localStorage.getItem('tutorial') === 'solved') {
+            this.engine.goToScene('levelSelect');
+        } else {
+            this.engine.goToScene('tutorial');
+        }
+    }
+
     onActivate(context: SceneActivationContext<unknown>): void {
         if (!Config.skipTutorial) {
-            this.subscriptions.push(this.input.pointers.once('down', () => this.engine.goToScene('tutorial')));
-            this.subscriptions.push(this.input.keyboard.once('press', () => this.engine.goToScene('tutorial')));
+            this.subscriptions.push(this.input.pointers.once('down', () => this.levelSelectOrTutorial()));
+            this.subscriptions.push(this.input.keyboard.once('press', () => this.levelSelectOrTutorial()));
         } else {
             this.subscriptions.push(this.input.pointers.once('down', () => this.engine.goToScene('introLevel')));
             this.subscriptions.push(this.input.keyboard.once('press', () => this.engine.goToScene('introLevel')));
