@@ -235,6 +235,11 @@ export class PuzzleGrid {
     label.actions.fade(1, 250); // fading back to fully opaque because clearing actions sometimes leaves the fade partially done
   }
 
+  flagAllUnsolved() {
+    this.rowLabels.forEach(l => this.flagGoalLabelAsUnsolved(l));
+    this.columnLabels.forEach(l => this.flagGoalLabelAsUnsolved(l));
+  }
+
   createGroundTileFloatEffect(tile: IsometricTile) {
     const actions = new ActionsComponent();
 

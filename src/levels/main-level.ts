@@ -151,6 +151,7 @@ export class Level extends Scene {
     onDeactivate(context: SceneActivationContext<undefined>): void {
         this.inventory.toggleVisible(false);
         this.clearAllPlacedUnits();
+        this.puzzleGrid.flagAllUnsolved();
     }
 
     moveSelection = (evt: PointerEvent) => {
