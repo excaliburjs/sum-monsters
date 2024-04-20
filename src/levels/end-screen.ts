@@ -18,9 +18,11 @@ export class EndScreen extends Scene {
             size: 40,
             unit: FontUnit.Px
         });
+        
+        const height =  600 * (10/16);
         this.endLabel = new Label({
             text: 'Thanks for playing!\nPlay Again?',
-            pos: vec(400, 300),
+            pos: vec(400, height/2),
             font: this.font
         });
         this.add(this.endLabel);
