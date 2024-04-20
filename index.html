@@ -1,33 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="Content-Security-Policy" content="script-src 'self';">
-        <meta name="theme-color" content="#420020">
-        <meta name="mobile-web-app-capable" content="yes">
-        <link rel="icon" href="favicon.ico" />
-        <link rel="stylesheet" href="styles.css" />
-        <title>Sum Monsters</title>
-        <link rel="stylesheet" href="./src/vendor/fa/css/fork-awesome.min.css">
-        <script src="./src/vendor/zepto.min.js" crossorigin="anonymous"></script>
-    </head>
-    <body>
-        <main id="content">
-            <canvas id="game"></canvas>
-            <app-inventory></app-inventory>
-            <ul id="menu">
-                <li>
-                    <a id="mute-music" href="#mute-music"><i class="fa fa-music"></i></a>
-                </li>
-                <li>
-                    <a id="mute-all" href="#mute-all"><i class="fa fa-volume-up"></i></a>
-                </li>
-                <li><a href="credits.html">Credits</a></li>
-            </ul>
-            <!-- <a id="commitRef" href="https://github.com/excaliburjs/sum-monsters/commit/{{ commitRef }}">{{ commitRefShort }}</a> -->
-        </main>
-        <script type="module" src="./src/main.ts"></script>
-    </body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self';">
+    <meta name="theme-color" content="#420020">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" href="favicon.ico" />
+    <!-- third-generation iPad with high-resolution Retina display: -->
+    <link rel="apple-touch-icon" sizes="144x144" href="icon144x144.png" />
+    <!-- iPhone with high-resolution Retina display: -->
+    <link rel="apple-touch-icon" sizes="114x114" href="icon114x114.png" />
+    <!-- first- and second-generation iPad: -->
+    <link rel="apple-touch-icon" sizes="72x72" href="icon.png" />
+    <!-- non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+    <link rel="apple-touch-icon" href="icon.png" />
+    <!-- basic favicon -->
+    <link rel="icon" href="icon.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Sum Monsters</title>
+    <link rel="stylesheet" href="./src/vendor/fa/css/fork-awesome.min.css">
+    <script src="./src/vendor/zepto.min.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <main id="content">
+        <canvas id="game"></canvas>
+        <app-inventory></app-inventory>
+        <ul id="menu">
+            <li>
+                <a id="mute-music" href="#mute-music"><i class="fa fa-music"></i></a>
+            </li>
+            <li>
+                <a id="mute-all" href="#mute-all"><i class="fa fa-volume-up"></i></a>
+            </li>
+            <li><a href="credits.html">Credits</a></li>
+        </ul>
+        <!-- <a id="commitRef" href="https://github.com/excaliburjs/sum-monsters/commit/{{ commitRef }}">{{ commitRefShort }}</a> -->
+    </main>
+    <script type="module" src="./src/main.ts"></script>
+</body>
+
 </html>
