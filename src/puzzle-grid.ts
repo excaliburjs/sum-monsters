@@ -167,6 +167,11 @@ export class PuzzleGrid {
     this.dimension = dimension;
     this.grid = new Array(dimension * dimension).fill(null);
     this.hintGrid = new Array(dimension * dimension).fill(null);
+    for (let i = 0; i < dimension; i++) {
+      for (let j = 0; j < dimension; j++) {
+        this.addValueHint(j, i);
+      }
+    }
 
     for (let tile of this.iso.tiles) {
       const randGroundTileIndex = this.random.integer(

@@ -32,9 +32,6 @@ function populatePuzzle(puzzleIndex: number, puzzleGrid: PuzzleGrid) {
     for(let i=0; i < puzzleArray.length; i++) {
         let row = puzzleArray[i];
         for(let j=0; j < row.length; j++) {
-            
-            puzzleGrid.addValueHint(j, i);
-            
             const cellValue = row[j];
             // add enemies
             if (cellValue < 0) {
