@@ -97,6 +97,9 @@ export class Level extends Scene {
             if (dimension >= 3) {
                 this.camera.pos = this.camera.pos.add(vec(32 + 8, -8));
             }
+            if (dimension >= 6) {
+                this.camera.zoom = 1.5;
+            }
         }
 
     }
