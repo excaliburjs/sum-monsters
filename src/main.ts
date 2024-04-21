@@ -48,3 +48,10 @@ game.start("startScreen", {
     UnitsConfig['knight'].graphic = Resources.KnightIdle.getAnimation('idle')!
     UnitsConfig['archer'].graphic = Resources.ArcherIdle.getAnimation('idle')!
 });
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register(
+    new URL('service-worker.ts', import.meta.url),
+    {type: 'module'}
+  );
+}

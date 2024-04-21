@@ -1,0 +1,33 @@
+{
+    "name": "Sum Monsters",
+    "short_name": "Sum Monsters",
+    "display": "fullscreen",
+    "description": "Play the mathimagical game where you arrange monsters to complete the dungeon’s sum-mons. May Trix the Witch is doing all she can to bring the dungeon to order!",
+    "background_color ": "$420020",
+    "start_url": ".",
+    "screenshots": [
+        {
+            "form_factor": "wide",
+            "label": "Sum Monsters",
+            "src": "screenshot.png",
+            "sizes": "2014x934"
+        }
+    ],
+    "icons": [
+      {
+        "src": "icon.png",
+        "type": "image/png",
+        "sizes": "75x75"
+      },
+      {
+        "src": "icon114x114.png",
+        "type": "image/png",
+        "sizes": "114x114"
+      },
+      {
+        "src": "icon144x144.png",
+        "type": "image/png",
+        "sizes": "144x144"
+      }
+    ]
+  }
