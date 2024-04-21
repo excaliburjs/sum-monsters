@@ -26,7 +26,7 @@ const $7a5ef2832c910d48$var$manifest = [
     "/sum-monsters/forkawesome-webfont.09dacb4b.ttf",
     "/sum-monsters/forkawesome-webfont.bdadb576.svg",
     "/sum-monsters/index.1a1f300c.js",
-    "/sum-monsters/index.dd3925da.js",
+    "/sum-monsters/index.b1524b10.js",
     "/sum-monsters/PressStart2P-Regular.492382e8.ttf",
     "/sum-monsters/template-sample-image-sword.0b40f6ad.png",
     "/sum-monsters/isometric-tiles.fc7eabf4.png",
@@ -47,7 +47,7 @@ const $7a5ef2832c910d48$var$manifest = [
     "/sum-monsters/background_1_loopable.9feed55e.mp3",
     "/sum-monsters/sfxr.33f6e664.js"
 ];
-const $7a5ef2832c910d48$var$version = "7355dae0";
+const $7a5ef2832c910d48$var$version = "9b5ff141";
 (0, $4550420cc206d4d6$export$c208e1278d7beb2)($7a5ef2832c910d48$var$manifest, $7a5ef2832c910d48$var$version);
 
 var $bde5ff4dd298e998$exports = {};
