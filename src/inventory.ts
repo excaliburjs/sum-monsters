@@ -164,7 +164,7 @@ export class Inventory extends LitElement {
                 if (this.level.currentSelection) {
                     this.level.cancelSelection();
                 }
-                this.level.selectUnit(unit);
+                this.level.selectUnit(unit, true);
                 this.counts[type]--;
                 SfxrSounds.selectInventory.play();
                 this.requestUpdate();
@@ -185,7 +185,7 @@ export class Inventory extends LitElement {
             <ul>
                 ${Object.entries(this.counts).map(([type, count]) => count > 0 ? html`
                     <li>
-                        <button .title=${'Summoned Value: ' + UnitsConfig[type as UnitType].value.toString()} @click=${this.onSelection(type as UnitType)}>
+                        <button .title=${'Summoned Value: ' + UnitsConfig[type as UnitType].value.toString()} @pointerdown=${this.onSelection(type as UnitType)}>
                             <span>${UnitsConfig[type as UnitType].value.toString()}:${type}</span>
                             ${new Array(count).fill(null).map(() => 
                                 html`<div class="unit-image ${type}"></div>`

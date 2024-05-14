@@ -21,6 +21,7 @@ import {
     AnimationStrategy,
     Sprite,
     ImageWrapping,
+    Subscription,
 } from "excalibur";
 import { PuzzleGrid, ValueHintSprite } from "../puzzle-grid";
 import { Unit } from "../unit";
@@ -269,7 +270,7 @@ export class Level extends Scene {
         return false;
     }
 
-    placeUnitWithPointer = (evt: PointerEvent) => {
+    placeUnitWithPointer = (evt: PointerEvent, cancelInvalid = true) => {
         if (this.puzzleGrid.validTile(evt.worldPos)) {
             const tileCoord = this.puzzleGrid.getTileCoord(evt.worldPos);
             if (tileCoord) {
@@ -285,6 +286,7 @@ export class Level extends Scene {
                 }
             }
         } else {
+            if (!cancelInvalid) return;
             if(!!this.currentSelection) {
                 this.checkSolution() // yes this isn't very efficient since we know this can't be a solution, but it's the fastest way to update the goal labels
                 SfxrSounds.remove.play() 
@@ -417,7 +419,9 @@ export class Level extends Scene {
         }
     };
 
-    selectUnit(unit: Unit) {
+    inventoryUpSubscription: Subscription | null = null;
+
+    selectUnit(unit: Unit, fromInventory = false) {
         if (this.currentSelection) {
             this.remove(this.currentSelection);
             this.currentSelection = null;
@@ -427,6 +431,14 @@ export class Level extends Scene {
         this.currentSelection = unit;
         this.add(unit);
         this.playSelectedUnitAnimation();
+        if (fromInventory) {
+            this.inventoryUpSubscription?.close();
+            this.inventoryUpSubscription = this.input.pointers.once("up", (ev) => {
+                if (this.currentSelection) {
+                    this.placeUnitWithPointer(ev, false);
+                }
+            });
+        }
     }
 
     cancelSelection() {
