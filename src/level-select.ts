@@ -71,7 +71,22 @@ export class LevelSelectElement extends LitElement {
 
     toggleVisible(visible: boolean) {
         this.visible = visible;
+        this.checkSolved();
         this.requestUpdate();
+    }
+
+    checkSolved() {
+        this.puzzles = Object.keys(config.puzzles).map(k => {
+            return [k, !!localStorage.getItem(k)]
+        });
+
+        this.maxPuzzleNumberSolved = -1;
+        for (let p = 0; p < this.puzzles.length; p++) {
+            if (this.puzzles[p][1] && p > this.maxPuzzleNumberSolved) {
+                this.maxPuzzleNumberSolved = p;
+            }
+        }
+        console.log(this.maxPuzzleNumberSolved);
     }
 
     setLevelSelectTopLeft(pos: Vector) {
@@ -84,17 +99,7 @@ export class LevelSelectElement extends LitElement {
     }
 
     protected firstUpdated(_changedProperties: PropertyValueMap<any> | Map<PropertyKey, unknown>): void {
-        this.puzzles = Object.keys(config.puzzles).map(k => {
-            return [k, !!localStorage.getItem(k)]
-        });
-
-        this.maxPuzzleNumberSolved = -1;
-        for (let p = 0; p < this.puzzles.length; p++) {
-            if (this.puzzles[p][1] && p > this.maxPuzzleNumberSolved) {
-                this.maxPuzzleNumberSolved = p;
-            }
-        }
-        console.log(this.maxPuzzleNumberSolved);
+        this.checkSolved();
     }
 
     onSelection = (level: number) => {

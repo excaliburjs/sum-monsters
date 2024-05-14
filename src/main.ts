@@ -8,6 +8,7 @@ import Config from "./config";
 
 import "./inventory"; // lit component
 import "./level-select";
+import "./puzzle-select";
 
 import { EndScreen } from "./levels/end-screen";
 import { Tutorial } from "./levels/tutorial";

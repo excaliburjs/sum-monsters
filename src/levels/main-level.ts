@@ -31,6 +31,7 @@ import { Resources, SfxrSounds } from "../resources";
 import Config from "../config";
 import { createRainbowOutlineMaterial } from "../rainbowOutline";
 import { LevelSelectElement } from "../level-select";
+import { PuzzleSelect } from "../puzzle-select";
 
 export const setWorldPixelConversion = (game: Engine) => {
     const pageOrigin = game.screen.worldToPageCoordinates(Vector.Zero);
@@ -47,6 +48,10 @@ export const setWorldPixelConversion = (game: Engine) => {
     const levelSelect = document.getElementsByTagName(
         'level-select')[0]! as LevelSelectElement;
     levelSelect.setLevelSelectTopLeft(game.screen.screenToPageCoordinates(vec(50, 120)));
+
+    const puzzleSelectButton = document.getElementsByTagName(
+        'puzzle-select')[0]! as PuzzleSelect;
+    puzzleSelectButton.setPuzzleSelectBottomRight(game.screen.screenToPageCoordinates(vec(800-5, 600 * (10/16) - 5)));
 }
 
 export const goToPuzzle = (game: Engine, puzzleNumber: number) => {
@@ -71,6 +76,7 @@ export class Level extends Scene {
     puzzleGrid: PuzzleGrid;
     currentSelection: Unit | null = null;
     inventory!: Inventory;
+    puzzleSelectButton!: PuzzleSelect;
     currentSelectedCoordinate: { x: number; y: number } = { x: 0, y: 0 };
     summoner!: Actor;
     rainbowMaterial!: Material;
@@ -110,6 +116,9 @@ export class Level extends Scene {
         this.inventory = document.getElementsByTagName(
             "app-inventory"
         )[0]! as Inventory;
+        this.puzzleSelectButton = document.getElementsByTagName(
+            'puzzle-select'
+        )[0]! as PuzzleSelect;
         this.summoner = new Actor({
             pos: vec(720, 232),
             scale: vec(2, 2),
@@ -167,15 +176,18 @@ export class Level extends Scene {
         this.inventory.setLevel(this);
         let inventory = calculateInventory(this.level, this);
         this.inventory.setInventoryConfig(inventory);
+        this.puzzleSelectButton.setEngine(this.engine);
         setWorldPixelConversion(this.engine);
         this.engine.clock.schedule(() => {
             setWorldPixelConversion(this.engine);
         });
         this.inventory.toggleVisible(true);
+        this.puzzleSelectButton.toggleVisible(true);
     }
 
     onDeactivate(context: SceneActivationContext<undefined>): void {
         this.inventory.toggleVisible(false);
+        this.puzzleSelectButton.toggleVisible(false);
         this.clearAllPlacedUnits();
         this.puzzleGrid.flagAllUnsolved();
     }
