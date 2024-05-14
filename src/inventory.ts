@@ -65,11 +65,17 @@ export class Inventory extends LitElement {
                 cursor: pointer;
                 border-radius: 5px;
                 background-color: #1e1e1e;
-                margin-bottom: 5px;
+                margin-bottom: 10px;
                 padding: 5px;
+                border: 2px solid white;
+                box-shadow: 0 3px gray;
             }
             button:hover,button:focus-visible {
                 outline: white solid 2px;
+            }
+            button:active {
+                transform: translate(0, 4px);
+                box-shadow: 0 0 black;
             }
 
             span {
