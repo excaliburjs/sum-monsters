@@ -259,7 +259,11 @@ export class Level extends Scene {
                 if (valueHint) {
                     valueHint.graphics.use(ValueHintSprite[unitType]);
                     unit?.actions.fade(Config.units.opacityAfterPlacement, Config.units.monsters.fadeSpeedMs).callMethod(() => {
-                        valueHint.graphics.visible = true;
+                        if (this.puzzleGrid.getUnit(x, y)) {
+                            valueHint.graphics.visible = true;
+                        } else {
+                            valueHint.graphics.visible = false;
+                        }
                     });
                 }
 

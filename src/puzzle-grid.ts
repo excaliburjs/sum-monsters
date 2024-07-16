@@ -425,7 +425,7 @@ export class PuzzleGrid {
         unit.graphics.offset = vec(0, -8);
       }
       unit.addComponent(new IsometricEntityComponent(this.iso));
-      unit.get(IsometricEntityComponent).elevation = 3;      
+      unit.get(IsometricEntityComponent).elevation = 3;
       tile.addChild(unit);
       this.grid[x + y * this.dimension] = unit;
       this.events.emit('placement', tile);
