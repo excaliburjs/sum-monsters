@@ -121,7 +121,7 @@ export class Level extends Scene {
             'puzzle-select'
         )[0]! as PuzzleSelect;
         this.summoner = new Actor({
-            pos: vec(720, 232),
+            pos: vec(720, 232).add(vec(-8, 28)),
             scale: vec(2, 2),
             coordPlane: CoordPlane.Screen
         });

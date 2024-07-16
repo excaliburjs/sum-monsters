@@ -31,7 +31,7 @@ export function createRainbowOutlineMaterial(engine: Engine) {
     
     void main() {
         const float TAU = 6.28318530;
-        const float steps = 4.0; // up/down/left/right pixels
+        const float steps = 8.0; // up/down/left/right pixels
         float radius = 2.0;
         float time_sec = u_time_ms / 1000.;
         
