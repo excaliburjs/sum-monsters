@@ -24,7 +24,7 @@ const game = new Engine({
   canvasElementId: "game",
   displayMode: DisplayMode.FitScreen,
   pixelArt: true,
-  pixelRatio: 2,
+  pixelRatio: 4,
   physics: false,
   scenes: {
     startScreen: StartScreen,
