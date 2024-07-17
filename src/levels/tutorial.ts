@@ -164,19 +164,26 @@ export class Tutorial extends Level {
     }
 
     waitForSelection = (selection: UnitType) => {
+        this.inventory.setPulse(selection, true);
         const future = new Future<void>();
-        if (this.selections.length > 0) {
+        const removeSelections = (selection: UnitType) => {
             const index = this.selections.indexOf(selection);
             this.selections.splice(index, 1);
             if (index > -1) {
+                this.inventory.setPulse(selection, false);
                 future.resolve();
             }
         }
-        this.inventory.addEventListener('selection', ({ detail }: any) => {
-            if (selection === detail) {
-                future.resolve();
-            }
-        });
+        console.log(this.selections);
+        if (this.selections.length > 0) {
+            removeSelections(selection);
+        } else {
+            this.inventory.addEventListener('selection', ({ detail }: any) => {
+                if (selection === detail) {
+                    removeSelections(detail);
+                }
+            }, {once: true});
+        }
         return future.promise;
     }
 
@@ -188,11 +195,11 @@ export class Tutorial extends Level {
                 future.resolve();
             }
         }))
-            this.puzzleGrid.events.on('placement', (tile) => {
-                if (tile.x === x && tile.y === y) {
-                    future.resolve();
-                }
-            });
+        this.puzzleGrid.events.on('placement', (tile) => {
+            if (tile.x === x && tile.y === y) {
+                future.resolve();
+            }
+        });
         return future.promise;
     }
 
@@ -210,10 +217,11 @@ export class Tutorial extends Level {
         const waitForPlacement = this.waitForPlacement;
         const puzzleGrid = this.puzzleGrid;
         const equation = this.equation;
+        const inventory = this.inventory;
         coroutine(function* () {
             const xPos = 508;
-            const goblinYPos = 85;
-            const ratYPos = 68;
+            const goblinYPos = 90;
+            const ratYPos = 73;
             yield 500;
             yield moveFingerAndRotate(vec(xPos, goblinYPos), 0);
             yield waitForSelection('goblin');
