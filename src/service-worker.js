@@ -1,5 +1,5 @@
 (() => {
-var $30798be6a8ea7d7c$exports = {};
+var $7a5ef2832c910d48$exports = {};
 let $4550420cc206d4d6$export$e538f94cc8cf4db8 = [];
 let $4550420cc206d4d6$export$83d89fbfd8236492 = "";
 function $4550420cc206d4d6$export$c208e1278d7beb2(m, v) {
@@ -8,9 +8,8 @@ function $4550420cc206d4d6$export$c208e1278d7beb2(m, v) {
 }
 
 
-const $30798be6a8ea7d7c$var$manifest = [
+const $7a5ef2832c910d48$var$manifest = [
     "/sum-monsters/index.html",
-    "/sum-monsters/sum-monsters-social.jpg",
     "/sum-monsters/manifest.webmanifest",
     "/sum-monsters/icon.7afd20ef.png",
     "/sum-monsters/icon114x114.852f8217.png",
@@ -48,8 +47,8 @@ const $30798be6a8ea7d7c$var$manifest = [
     "/sum-monsters/background_1_loopable.9feed55e.mp3",
     "/sum-monsters/sfxr.33f6e664.js"
 ];
-const $30798be6a8ea7d7c$var$version = "8ba6698d";
-(0, $4550420cc206d4d6$export$c208e1278d7beb2)($30798be6a8ea7d7c$var$manifest, $30798be6a8ea7d7c$var$version);
+const $7a5ef2832c910d48$var$version = "48c373cf";
+(0, $4550420cc206d4d6$export$c208e1278d7beb2)($7a5ef2832c910d48$var$manifest, $7a5ef2832c910d48$var$version);
 
 var $bde5ff4dd298e998$exports = {};
 
