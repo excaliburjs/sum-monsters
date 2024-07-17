@@ -18,7 +18,8 @@ export class LevelSelect extends Scene {
             color: Color.White,
             textAlign: TextAlign.Center,
             size: 40,
-            unit: FontUnit.Px
+            unit: FontUnit.Px,
+            quality: 8
         });
         
         const height =  600 * (10/16);

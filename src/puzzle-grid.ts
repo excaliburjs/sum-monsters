@@ -76,7 +76,7 @@ export class PuzzleGrid {
     unit: FontUnit.Px,
     color: Color.White,
     textAlign: TextAlign.Center,
-    quality: 4,
+    quality: 8,
     lineWidth: 1,
     strokeColor: Color.Black,
   });
@@ -86,7 +86,7 @@ export class PuzzleGrid {
     family: "PressStart2P",
     unit: FontUnit.Px,
     color: Color.White,
-    quality: 4,
+    quality: 8,
   });
 
   // housekeeping data structure for lighting up the ground blocks
