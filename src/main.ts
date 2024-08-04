@@ -41,7 +41,9 @@ game.start("startScreen", {
   loader,
   
 }).then(() => {
-    game.screen.goFullScreen('content');
+    // game.screen.goFullScreen('content');
+    game.screen.pixelRatioOverride = 4;
+    game.screen.applyResolutionAndViewport();
     UnitsConfig['dragon'].graphic = Resources.DragonIdle.getAnimation('idle')!
     UnitsConfig['orc'].graphic = Resources.OrcIdle.getAnimation('idle')!
     UnitsConfig['goblin'].graphic = Resources.GoblinIdle.getAnimation('idle')!
