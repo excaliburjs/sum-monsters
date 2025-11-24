@@ -1,0 +1,3 @@
+[submodule "vendor/excalibur"]
+	path = vendor/excalibur
+	url = https://github.com/excaliburjs/Excalibur.git
